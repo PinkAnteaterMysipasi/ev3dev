@@ -152,6 +152,14 @@ func (m *TachoMotor) Command(comm string) *TachoMotor {
 	return m
 }
 
+func (m *TachoMotor) RunForever() *TachoMotor {
+	return m.Command("run-forever")
+}
+
+func (m *TachoMotor) RunForeverWithSpeed(sp int) *TachoMotor {
+	return m.SetSpeedSetpoint(sp).Command("run-forever")
+}
+
 // CountPerRot returns the number of tacho counts in one rotation of the motor.
 func (m *TachoMotor) CountPerRot() int {
 	return m.countPerRot
